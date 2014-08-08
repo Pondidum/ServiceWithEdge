@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using EdgeJs;
@@ -10,10 +12,19 @@ namespace ServiceWithEdge
 	{
 		static void Main(string[] args)
 		{
+			try
+			{
+
 			var store = new ModelStore();
 
 			RunSomeService(store);
 			RunWebui(store);
+
+			}
+			catch (Exception ex)
+			{
+				Console.Write(ex);
+			}
 
 			Console.ReadKey();
 		}
@@ -33,20 +44,22 @@ namespace ServiceWithEdge
 			});
 		}
 
+		private static string GetApp()
+		{
+			var asm = Assembly.GetExecutingAssembly();
+			var name = "ServiceWithEdge.webui.app.js";
+
+			using (var s = asm.GetManifestResourceStream(name))
+			using (var reader = new StreamReader(s))
+			{
+				return reader.ReadToEnd();
+			}
+		}
+
 		private static void RunWebui(ModelStore store)
 		{
-			var func = Edge.Func(@"
-				var app = require('../webui/app');
-				var com = require('../webui/communicator');
-
-				app.set('port', process.env.PORT || 3000);
-
-				var server = app.listen(app.get('port'));
-	
-				return function(options, callback) {
-					com.set(options);
-				};
-			");
+			var app = GetApp();
+			var func = Edge.Func(app);
 
 			var getModel = (Func<object, Task<object>>)(async (message) =>
 			{
@@ -56,7 +69,8 @@ namespace ServiceWithEdge
 
 			Task.Run(() => func(new
 			{
-				getModel
+				getModel,
+				port = 3000,
 			}));
 		}
 	}
