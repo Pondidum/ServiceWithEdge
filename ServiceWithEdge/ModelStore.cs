@@ -5,28 +5,36 @@ namespace ServiceWithEdge
 {
 	public class ModelStore
 	{
-		private readonly Dictionary<string, object> _models;
+		private readonly Dictionary<string, Func<object>> _models;
 
 		public ModelStore()
 		{
-			_models = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+			_models = new Dictionary<string, Func<object>>();
 		}
 
 		public void Register(object model)
 		{
-			_models[model.GetType().Name] = model;
+			Register(model.GetType(), () => model);
 		}
 
-		public object GetModel(string name)
+		public void Register<T>(Func<T> getModel)
 		{
-			object model;
+			Register(typeof(T), () => getModel());
+		}
 
-			if (_models.TryGetValue(name + "Model", out model))
+		private void Register(Type type, Func<object> getModel)
+		{
+			if (_models.ContainsKey(type.Name))
 			{
-				return model;
+				throw new Exception();
 			}
 
-			throw new Exception(string.Format("Cannot find a model called '{0}'", name));
+			_models[type.Name] = getModel;
+		}
+
+		public IEnumerable<string> GetAllModelNames()
+		{
+			return _models.Keys;
 		}
 	}
 }
