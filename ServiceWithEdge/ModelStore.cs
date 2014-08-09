@@ -36,5 +36,10 @@ namespace ServiceWithEdge
 		{
 			return _models.Keys;
 		}
+
+		public object GetModel(string name)
+		{
+			return _models[name + "Model"].Invoke();
+		}
 	}
 }
