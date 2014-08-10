@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ServiceWithEdge
 {
@@ -9,7 +10,7 @@ namespace ServiceWithEdge
 
 		public ModelStore()
 		{
-			_models = new Dictionary<string, Func<object>>();
+			_models = new Dictionary<string, Func<object>>(StringComparer.OrdinalIgnoreCase);
 		}
 
 		public void Register(object model)
@@ -34,7 +35,7 @@ namespace ServiceWithEdge
 
 		public IEnumerable<string> GetAllModelNames()
 		{
-			return _models.Keys;
+			return _models.Keys.Select(m => m.Replace("Model", ""));
 		}
 
 		public object GetModel(string name)
