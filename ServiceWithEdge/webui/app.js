@@ -20,8 +20,6 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(root, 'public')));
 
-// --------------------------------------------
-
 var routes = express.Router();
 
 routes.get('/', function(req, res) {
@@ -30,8 +28,7 @@ routes.get('/', function(req, res) {
 
 app.use('/', routes);
 
-// --------------------------------------------
-
+//{Models}
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

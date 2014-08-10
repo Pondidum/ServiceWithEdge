@@ -15,10 +15,10 @@ namespace ServiceWithEdge
 			try
 			{
 
-			var store = new ModelStore();
+				var store = new ModelStore();
 
-			RunSomeService(store);
-			RunWebui(store);
+				RunSomeService(store);
+				RunWebui(store);
 
 			}
 			catch (Exception ex)
@@ -39,7 +39,7 @@ namespace ServiceWithEdge
 				while (true)
 				{
 					Thread.Sleep(500);
-					Console.WriteLine(model.Iterations++);
+					model.Iterations++;
 				}
 			});
 		}
@@ -58,7 +58,9 @@ namespace ServiceWithEdge
 
 		private static void RunWebui(ModelStore store)
 		{
-			var app = GetApp();
+			var router = new RouterGenerator(store);
+
+			var app = GetApp().Replace("//{Models}", router.Generate());
 			var func = Edge.Func(app);
 
 			var getModel = (Func<object, Task<object>>)(async (message) =>
@@ -67,11 +69,21 @@ namespace ServiceWithEdge
 			});
 
 
-			Task.Run(() => func(new
+			Task.Run(() =>
 			{
-				getModel,
-				port = 3000,
-			}));
+				try
+				{
+					func(new
+					{
+						getModel,
+						port = 3000,
+					});
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine(ex.ToString());
+				}
+			});
 		}
 	}
 }
