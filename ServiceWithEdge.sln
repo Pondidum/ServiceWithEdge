@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceWithEdge", "ServiceWithEdge\ServiceWithEdge.csproj", "{29B07053-F275-4D91-9C17-4E6F015BC9EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dash", "Dash\Dash.csproj", "{9EF5E780-7F3E-446F-91B1-66289D8503CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{29B07053-F275-4D91-9C17-4E6F015BC9EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29B07053-F275-4D91-9C17-4E6F015BC9EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29B07053-F275-4D91-9C17-4E6F015BC9EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF5E780-7F3E-446F-91B1-66289D8503CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF5E780-7F3E-446F-91B1-66289D8503CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF5E780-7F3E-446F-91B1-66289D8503CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF5E780-7F3E-446F-91B1-66289D8503CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
