@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ServiceWithEdge
+namespace Dash
 {
 	public class ModelStore
 	{
@@ -11,11 +11,6 @@ namespace ServiceWithEdge
 		public ModelStore()
 		{
 			_models = new Dictionary<string, Func<object>>(StringComparer.OrdinalIgnoreCase);
-		}
-
-		public void Register(object model)
-		{
-			Register(model.GetType(), () => model);
 		}
 
 		public void Register<T>(Func<T> getModel)

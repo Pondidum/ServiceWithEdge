@@ -46,8 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashWebUI.cs" />
+    <Compile Include="ModelStore.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceReader.cs" />
+    <Compile Include="ModelRouteGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">
@@ -62,6 +68,7 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\start.js" />
     <EmbeddedResource Include="Fragments\app.js" />
   </ItemGroup>

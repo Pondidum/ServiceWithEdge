@@ -1,18 +1,22 @@
 ﻿using System.Text;
 
-namespace ServiceWithEdge
+namespace Dash
 {
-	public class RouterGenerator
+	public class ModelRouteGenerator
 	{
+		private readonly ResourceReader _reader;
 		private readonly ModelStore _modelStore;
 
-		public RouterGenerator(ModelStore modelStore)
+		public ModelRouteGenerator(ResourceReader reader, ModelStore modelStore)
 		{
+			_reader = reader;
 			_modelStore = modelStore;
 		}
 
 		public string Generate()
 		{
+			var template = _reader.Read("routes.js");
+
 			var sb = new StringBuilder();
 
 			sb.AppendLine("var models = express.Router();");
@@ -23,20 +27,12 @@ namespace ServiceWithEdge
 				var modelName = model;
 				var viewName = "";
 
-				sb.AppendFormat(RouteTemplate, modelName);
+				sb.AppendLine(template.Replace("{modelName}", modelName));
 			}
 
 			sb.AppendLine("app.use('/models', models);");
 
 			return sb.ToString();
 		}
-
-		private const string RouteTemplate = @"
-			models.get('/{0}', function(req, res) {{
-				communicator.getModel('{0}', function(model) {{
-					res.json({{ model: model }});
-				}});
-			}});
-		";
 	}
 }

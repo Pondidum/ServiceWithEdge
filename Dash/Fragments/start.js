@@ -1,4 +1,4 @@
 ﻿return function(options, callback) {
-    //communicator.set(options);
+    communicator = options;
     app.listen(options.port);
 };
