@@ -19,9 +19,11 @@ namespace Dash
 
 		public void FromNamespace(Assembly assembly, string ns)
 		{
+			var fullNamespace = typeof (ViewWriter).Namespace + "." + ns;
+
 			_views.AddRange(assembly
 				.GetManifestResourceNames()
-				.Where(res => res.StartsWith(ns, StringComparison.OrdinalIgnoreCase)));
+				.Where(res => res.StartsWith(fullNamespace, StringComparison.OrdinalIgnoreCase)));
 		}
 
 		public void WriteViews()		//IFileSystem fs
@@ -44,7 +46,15 @@ namespace Dash
 
 		private string PathFromNamespace(string ns)
 		{
-			return ns.Replace(".", @"\");
+			var chars = ns.ToList();
+
+			while (chars.Count(c => c == '.') > 1)
+			{
+				var index = chars.IndexOf('.');
+				chars[index] = '\\';
+			}
+
+			return new string(chars.ToArray()).Replace("Dash\\", "");
 		}
 	}
 }
