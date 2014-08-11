@@ -8,9 +8,8 @@ namespace Dash
 		public string Read(string resourceName)
 		{
 			var asm = Assembly.GetExecutingAssembly();
-			var name = typeof (ResourceReader).Namespace + resourceName;
 
-			using (var s = asm.GetManifestResourceStream(name))
+			using (var s = asm.GetManifestResourceStream(resourceName))
 			using (var reader = new StreamReader(s))
 			{
 				return reader.ReadToEnd();

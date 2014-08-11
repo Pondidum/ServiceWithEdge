@@ -15,7 +15,7 @@ namespace Dash
 
 		public string Generate()
 		{
-			var template = _reader.Read(".Fragments.routes.js");
+			var template = _reader.Read("Dash.Fragments.routes.js");
 
 			var sb = new StringBuilder();
 
