@@ -8,11 +8,15 @@ namespace Dash
 	{
 		private readonly ResourceReader _reader;
 		private readonly ModelStore _modelStore;
+		private readonly ViewWriter _views;
 
 		public DashWebUI()
 		{
 			_reader = new ResourceReader();
 			_modelStore = new ModelStore();
+			_views = new ViewWriter(_reader);
+
+			_views.FromNamespace(typeof(DashWebUI).Assembly, "Views");
 		}
 
 		public void Register<T>(Func<T> getModel)

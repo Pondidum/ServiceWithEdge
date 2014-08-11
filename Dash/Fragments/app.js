@@ -12,6 +12,10 @@ var getModel = function (modelName, action) {
     });
 };
 
+app.set('views', 'views');
+app.set('view engine', 'jade');
+app.use(express.static('public'));
+
 app.get('/', function(req, res) {
-    res.send('hello');
+    res.render('index', { title: "test", result: "amaze"});
 });
