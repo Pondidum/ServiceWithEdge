@@ -54,6 +54,7 @@
     <Compile Include="ModelRouteGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">
