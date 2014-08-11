@@ -68,6 +68,8 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Views\index.jade" />
+    <EmbeddedResource Include="Views\layout.jade" />
     <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\start.js" />
     <EmbeddedResource Include="Fragments\app.js" />
