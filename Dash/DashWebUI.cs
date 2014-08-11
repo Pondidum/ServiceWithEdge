@@ -23,8 +23,8 @@ namespace Dash
 		public Task Start()
 		{
 			var models = new ModelRouteGenerator(_reader, _modelStore).Generate();
-			var app = _reader.Read("app.js");
-			var start = _reader.Read("start.js");
+			var app = _reader.Read(".Fragments.app.js");
+			var start = _reader.Read(".Fragments.start.js");
 
 			var func = Edge.Func(
 				app + Environment.NewLine + 
