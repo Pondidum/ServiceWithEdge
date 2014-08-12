@@ -49,6 +49,7 @@
     <Compile Include="FragmentCollection.cs" />
     <Compile Include="Fragments\AppFragment.cs" />
     <Compile Include="Fragments\ModelRoutesFragment.cs" />
+    <Compile Include="Fragments\RoutesFragment.cs" />
     <Compile Include="Fragments\StartFragment.cs" />
     <Compile Include="Fragments\ViewEngineFragment.cs" />
     <Compile Include="ResourceFragment.cs" />
@@ -73,6 +74,7 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\viewengine.js" />
     <EmbeddedResource Include="Views\index.jade" />
     <EmbeddedResource Include="Views\layout.jade" />

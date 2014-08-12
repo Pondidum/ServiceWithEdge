@@ -31,9 +31,10 @@ namespace Dash
 
 			var fragments = new FragmentCollection(new IFragment[]
 			{
-				new AppFragment(_reader), 
-				new ViewEngineFragment(_reader), 
-				new ModelRoutesFragment(_reader, _modelStore), 
+				new AppFragment(_reader),
+				new ViewEngineFragment(_reader),
+				new RoutesFragment(_reader),
+				new ModelRoutesFragment(_reader, _modelStore),
 				new StartFragment(_reader)
 			});
 
