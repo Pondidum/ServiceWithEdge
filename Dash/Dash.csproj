@@ -48,6 +48,7 @@
     <Compile Include="DashWebUI.cs" />
     <Compile Include="FragmentCollection.cs" />
     <Compile Include="Fragments\AppFragment.cs" />
+    <Compile Include="Fragments\ViewEngineFragment.cs" />
     <Compile Include="ResourceFragment.cs" />
     <Compile Include="IFragment.cs" />
     <Compile Include="ModelStore.cs">
