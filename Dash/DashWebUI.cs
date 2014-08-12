@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Dash.Fragments;
 using EdgeJs;
 
 namespace Dash
@@ -28,17 +29,16 @@ namespace Dash
 		{
 			_views.WriteViews();
 
-			var models = new ModelRouteGenerator(_reader, _modelStore).Generate();
-			var app = _reader.Read("Dash.Fragments.app.js");
-			var viewEngine = _reader.Read("Dash.Fragments.viewengine.js");
-			var start = _reader.Read("Dash.Fragments.start.js");
+			var fragments = new FragmentCollection(new IFragment[]
+			{
+				new AppFragment(_reader), 
+				new ViewEngineFragment(_reader), 
+				new ModelRoutesFragment(_reader, _modelStore), 
+				new StartFragment(_reader)
+			});
 
-			var func = Edge.Func(
-				app + Environment.NewLine + 
-				viewEngine + Environment.NewLine +
-				models + Environment.NewLine + 
-				start + Environment.NewLine);
-			
+			var func = Edge.Func(fragments.Build());
+
 			var getModel = (Func<object, Task<object>>)(async (message) =>
 			{
 				return _modelStore.GetModel((string)message);
@@ -49,7 +49,6 @@ namespace Dash
 				port = 3000,
 				getModel = getModel
 			};
-			
 
 			return Task.Run(() => func(args));
 
