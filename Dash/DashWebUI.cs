@@ -30,10 +30,12 @@ namespace Dash
 
 			var models = new ModelRouteGenerator(_reader, _modelStore).Generate();
 			var app = _reader.Read("Dash.Fragments.app.js");
+			var viewEngine = _reader.Read("Dash.Fragments.viewengine.js");
 			var start = _reader.Read("Dash.Fragments.start.js");
 
 			var func = Edge.Func(
 				app + Environment.NewLine + 
+				viewEngine + Environment.NewLine +
 				models + Environment.NewLine + 
 				start + Environment.NewLine);
 			

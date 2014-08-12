@@ -11,11 +11,3 @@ var getModel = function (modelName, action) {
         action(result);
     });
 };
-
-app.set('views', 'views');
-app.set('view engine', 'jade');
-app.use(express.static('public'));
-
-app.get('/', function(req, res) {
-    res.render('index', { title: "test", result: "amaze"});
-});
