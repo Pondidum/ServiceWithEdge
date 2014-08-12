@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashWebUI.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="FragmentCollection.cs" />
     <Compile Include="Fragments\AppFragment.cs" />
     <Compile Include="Fragments\ModelRoutesFragment.cs" />
@@ -59,7 +60,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceReader.cs" />
-    <Compile Include="ViewWriter.cs" />
+    <Compile Include="ResourceStructure.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">
@@ -74,10 +75,9 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Webui\Public\css\style.css" />
     <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\viewengine.js" />
-    <EmbeddedResource Include="Views\index.jade" />
-    <EmbeddedResource Include="Views\layout.jade" />
     <EmbeddedResource Include="Fragments\modelroutes.js" />
     <EmbeddedResource Include="Fragments\start.js" />
     <EmbeddedResource Include="Fragments\app.js" />
@@ -90,6 +90,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Webui\Views\index.jade" />
+    <None Include="Webui\Views\layout.jade" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
