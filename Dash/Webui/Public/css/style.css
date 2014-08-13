@@ -1,8 +1,9 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.control {
+	min-height: 215px;
+	max-height: 215px;
+	padding: 15px;
 }
 
-a {
-  color: #00B7FF;
+.small-text {
+	font-size: 0.8rem;
 }

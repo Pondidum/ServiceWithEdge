@@ -75,7 +75,11 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Webui\Public\css\style.css" />
+    <EmbeddedResource Include="Webui\Public\css\foundation.min.css" />
+    <EmbeddedResource Include="Webui\Public\css\jquery.jqplot.min.css" />
+    <EmbeddedResource Include="Webui\Public\css\style.css" />
+    <EmbeddedResource Include="Webui\Public\js\jquery-1.11.1.min.js" />
+    <EmbeddedResource Include="Webui\Public\js\jquery.jqplot.min.js" />
     <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\viewengine.js" />
     <EmbeddedResource Include="Fragments\modelroutes.js" />
