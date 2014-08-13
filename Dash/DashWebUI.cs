@@ -23,9 +23,6 @@ namespace Dash
 
 		public Task Start()
 		{
-			var resources = new ResourceStructure(_reader, "Dash.Webui");
-			resources.Write();
-
 			var fragments = new FragmentCollection(new IFragment[]
 			{
 				new AppFragment(_reader),

@@ -60,7 +60,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceReader.cs" />
-    <Compile Include="ResourceStructure.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="edge\double_edge.js">
@@ -75,11 +74,21 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Webui\Public\css\foundation.min.css" />
-    <EmbeddedResource Include="Webui\Public\css\jquery.jqplot.min.css" />
-    <EmbeddedResource Include="Webui\Public\css\style.css" />
-    <EmbeddedResource Include="Webui\Public\js\jquery-1.11.1.min.js" />
-    <EmbeddedResource Include="Webui\Public\js\jquery.jqplot.min.js" />
+    <Content Include="Public\css\foundation.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Public\css\jquery.jqplot.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Public\css\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Public\js\jquery-1.11.1.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Public\js\jquery.jqplot.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\viewengine.js" />
     <EmbeddedResource Include="Fragments\modelroutes.js" />
@@ -94,8 +103,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Webui\Views\index.jade" />
-    <None Include="Webui\Views\layout.jade" />
+    <Content Include="Views\index.jade">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\layout.jade">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
