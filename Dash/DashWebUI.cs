@@ -39,10 +39,16 @@ namespace Dash
 				return _modelStore.GetModel((string)message);
 			});
 
+			var getStaticResource = (Func<object, Task<object>>)(async (message) =>
+			{
+				return null;
+			});
+
 			var args = new
 			{
 				port = 3000,
-				getModel = getModel
+				getModel = getModel,
+				getStatic = getStaticResource
 			};
 
 			return Task.Run(() => func(args));
