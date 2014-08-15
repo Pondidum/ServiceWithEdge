@@ -9,6 +9,7 @@ namespace ServiceWithEdge
 		static void Main(string[] args)
 		{
 			RunWebui();
+			Console.WriteLine("Press any key to exit");
 			Console.ReadKey();
 		}
 
