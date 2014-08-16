@@ -74,21 +74,21 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Public\css\foundation.min.css">
+    <EmbeddedResource Include="Public\css\foundation.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Public\css\jquery.jqplot.min.css">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\css\jquery.jqplot.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Public\css\style.css">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\css\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Public\js\jquery-1.11.1.min.js">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\js\jquery-1.11.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Public\js\jquery.jqplot.min.js">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Public\js\jquery.jqplot.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fragments\routes.js" />
     <EmbeddedResource Include="Fragments\viewengine.js" />
     <EmbeddedResource Include="Fragments\modelroutes.js" />

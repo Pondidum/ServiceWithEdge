@@ -13,10 +13,12 @@ var staticSharp = function () {
             if (error) throw error;
 
             //how do i put a .net stream or buffer into response?
-            console.log(result);
+            //console.log(result);
+            res.set('Content-Type', 'text/css');
+            res.send(result);
 
         });
     };
 };
 
-app.use(staticSharp());
+app.use('/public', staticSharp());

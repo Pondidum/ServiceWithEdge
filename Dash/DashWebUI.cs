@@ -39,9 +39,11 @@ namespace Dash
 				return _modelStore.GetModel((string)message);
 			});
 
-			var getStaticResource = (Func<object, Task<object>>)(async (message) =>
+			var getStaticResource = (Func<object, Task<object>>)(async (arg) =>
 			{
-				return null;
+				var path = (string)arg;
+
+				return _reader.ReadArray("Dash" + path.Replace("/", "."));
 			});
 
 			var args = new
