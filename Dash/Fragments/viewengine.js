@@ -1,24 +1,28 @@
 ﻿app.set('views', 'views');
 app.set('view engine', 'jade');
 
-var staticSharp = function () {
+var staticSharp = function (root) {
+
+    root = root.toLowerCase();
 
     return function staticMiddleware(req, res, next) {
 
-        if ('GET' != req.method && 'HEAD' != req.method) return next();
+        if ('GET' != req.method && 'HEAD' != req.method) {
+            return next();
+        }
+
+        var path = req.originalUrl.toLowerCase();
 
         //if you pass req or res into a .net callback, edge throws stackoverflows
-        communicator.getStatic(req.originalUrl, function (error, result) {
+        var result = communicator.getStatic(root + path, true);
 
-            if (error) throw error;
-
-            //how do i put a .net stream or buffer into response?
-            //console.log(result);
+        if (result && result.length > 0) {
             res.set('Content-Type', 'text/css');
             res.send(result);
-
-        });
+        } else {
+            return next();
+        }
     };
 };
 
-app.use('/public', staticSharp());
+app.use(staticSharp('/public'));
