@@ -50,9 +50,7 @@
     <Compile Include="FragmentCollection.cs" />
     <Compile Include="Fragments\AppFragment.cs" />
     <Compile Include="Fragments\ModelRoutesFragment.cs" />
-    <Compile Include="Fragments\RoutesFragment.cs" />
     <Compile Include="Fragments\StartFragment.cs" />
-    <Compile Include="Fragments\ViewEngineFragment.cs" />
     <Compile Include="ResourceFragment.cs" />
     <Compile Include="IFragment.cs" />
     <Compile Include="ModelStore.cs">
@@ -74,6 +72,7 @@
     <Content Include="edge\x86\node.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Fragments\start.js" />
     <EmbeddedResource Include="Public\css\foundation.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -89,10 +88,7 @@
     <EmbeddedResource Include="Public\js\jquery.jqplot.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fragments\routes.js" />
-    <EmbeddedResource Include="Fragments\viewengine.js" />
     <EmbeddedResource Include="Fragments\modelroutes.js" />
-    <EmbeddedResource Include="Fragments\start.js" />
     <EmbeddedResource Include="Fragments\app.js" />
   </ItemGroup>
   <ItemGroup>
